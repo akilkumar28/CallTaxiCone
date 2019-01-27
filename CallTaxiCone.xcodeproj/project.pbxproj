@@ -54,14 +54,54 @@
 		42B3C55721FE54A8001EC249 /* CallTaxiCone */ = {
 			isa = PBXGroup;
 			children = (
+				42B3C56E21FE556B001EC249 /* Extensions */,
+				42B3C56D21FE5566001EC249 /* Services */,
+				42B3C56C21FE5551001EC249 /* Model */,
+				42B3C56B21FE5550001EC249 /* View */,
+				42B3C56A21FE554E001EC249 /* Controller */,
 				42B3C55821FE54A8001EC249 /* AppDelegate.swift */,
-				42B3C55A21FE54A8001EC249 /* ViewController.swift */,
 				42B3C55C21FE54A8001EC249 /* Main.storyboard */,
 				42B3C55F21FE54AA001EC249 /* Assets.xcassets */,
 				42B3C56121FE54AA001EC249 /* LaunchScreen.storyboard */,
 				42B3C56421FE54AA001EC249 /* Info.plist */,
 			);
 			path = CallTaxiCone;
+			sourceTree = "<group>";
+		};
+		42B3C56A21FE554E001EC249 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				42B3C55A21FE54A8001EC249 /* ViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		42B3C56B21FE5550001EC249 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		42B3C56C21FE5551001EC249 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		42B3C56D21FE5566001EC249 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		42B3C56E21FE556B001EC249 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
