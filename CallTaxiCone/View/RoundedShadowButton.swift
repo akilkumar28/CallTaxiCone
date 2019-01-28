@@ -30,7 +30,7 @@ class RoundedShadowButton: UIButton {
     func animateButton(shouldLoad:Bool,message:String?) {
         if shouldLoad {
             self.setTitle("", for: .normal)
-            UIView.animate(withDuration: 0.5) {
+            UIView.animate(withDuration: 0.2) {
                 self.layer.cornerRadius = 70 / 2
                 self.heightConstraint?.constant = 70
                 self.widthConstraint?.constant = 70
@@ -38,7 +38,7 @@ class RoundedShadowButton: UIButton {
             }
         } else {
             self.setTitle(message, for: .normal)
-            UIView.animate(withDuration: 0.5) {
+            UIView.animate(withDuration: 0.2) {
                 self.layer.cornerRadius = 0
                 self.heightConstraint?.constant = 65
                 self.widthConstraint?.constant = 374
