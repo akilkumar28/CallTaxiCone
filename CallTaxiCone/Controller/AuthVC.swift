@@ -38,8 +38,16 @@ class AuthVC: UIViewController {
         signUpLoginButton.heightConstraint = signUpLoginHeightConstraint
     }
     
+    @IBAction func switchButtonChanged(_ sender: Any) {
+        if switchButton.isOn {
+            signUpLoginButton.setTitle("Login", for: .normal)
+        } else {
+            signUpLoginButton.setTitle("Sign Up", for: .normal)
+        }
+    }
     
     @IBAction func signUpLoginButtonTapped(_ sender: Any) {
+        switchButton.isEnabled = false
         activityIndicator.startAnimating()
         signUpLoginButton.animateButton(shouldLoad: true, message: nil)
     }

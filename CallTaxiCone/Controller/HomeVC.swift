@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RevealingSplashView
 
 class HomeVC: UIViewController {
     
@@ -22,11 +23,26 @@ class HomeVC: UIViewController {
     
     var sidePanelIsOpen = false
     
+    var splashView : RevealingSplashView!
+    
+   
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureRequestRideButton()
         addTouchToWhitePanel()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        configureSplashView()
+        
+        
+        
+    }
+    
+    fileprivate func configureSplashView() {
+        splashView = RevealingSplashView(iconImage: #imageLiteral(resourceName: "launchScreenIcon"), iconInitialSize: CGSize(width: 80, height: 80), backgroundColor: .white)
+        splashView.animationType = .popAndZoomOut
+        self.view.addSubview(splashView)
+        splashView.startAnimation()
     }
     
     func addTouchToWhitePanel() {

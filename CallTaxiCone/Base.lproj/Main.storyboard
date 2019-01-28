@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="tLi-sh-3DE">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_1" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -190,7 +190,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jli-Fl-pD6" userLabel="SidePanel">
-                                <rect key="frame" x="-500" y="0.0" width="248.5" height="896"/>
+                                <rect key="frame" x="-500" y="0.0" width="249" height="896"/>
                                 <connections>
                                     <segue destination="wJb-BG-cjV" kind="embed" id="vJa-zQ-OlG"/>
                                 </connections>
@@ -238,11 +238,11 @@
             <objects>
                 <viewController id="wJb-BG-cjV" customClass="SidePanelVC" customModule="CallTaxiCone" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ZPF-zJ-XW9">
-                        <rect key="frame" x="0.0" y="0.0" width="248.5" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="249" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kjw-yV-V8H">
-                                <rect key="frame" x="0.0" y="0.0" width="248.5" height="130"/>
+                                <rect key="frame" x="0.0" y="0.0" width="249" height="130"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Menu" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="obX-ic-gBW">
                                         <rect key="frame" x="8" y="80.5" width="70" height="34.5"/>
@@ -433,7 +433,7 @@
                                                 <constraint firstAttribute="height" constant="65" id="emG-iF-SgY"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="30"/>
-                                            <state key="normal" title="Sign Up">
+                                            <state key="normal" title="Login">
                                                 <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </state>
                                             <connections>
@@ -453,6 +453,9 @@
                                                     <rect key="frame" x="81.5" y="0.0" width="51" height="31"/>
                                                     <color key="onTintColor" red="0.80784313730000001" green="0.25098039220000001" blue="0.20392156859999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <color key="thumbTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <connections>
+                                                        <action selector="switchButtonChanged:" destination="tLi-sh-3DE" eventType="valueChanged" id="oga-0T-HZK"/>
+                                                    </connections>
                                                 </switch>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Login" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fqI-6S-os8">
                                                     <rect key="frame" x="140.5" y="0.0" width="54.5" height="31"/>
