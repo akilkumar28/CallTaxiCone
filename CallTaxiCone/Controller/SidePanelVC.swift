@@ -10,6 +10,9 @@ import UIKit
 
 class SidePanelVC: UIViewController {
 
+    
+    @IBOutlet weak var loginButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -23,5 +26,11 @@ class SidePanelVC: UIViewController {
          self.view.layer.shadowOffset = CGSize(width: 0, height: 5)
     }
    
-
+    @IBAction func loginButtonTapped(_ sender: Any) {
+        guard let AuthVC = storyboard?.instantiateViewController(withIdentifier: "AuthVC") else {
+            return
+        }
+        present(AuthVC, animated: true, completion: nil)
+    }
+    
 }
