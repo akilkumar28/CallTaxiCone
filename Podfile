@@ -12,5 +12,7 @@ target 'CallTaxiCone' do
   pod 'Firebase/Auth'
   pod 'Firebase/Database'
   pod 'RevealingSplashView'
+  pod 'IQKeyboardManagerSwift'
+  pod 'SwiftyJSON'
  
 end

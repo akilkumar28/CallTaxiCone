@@ -301,20 +301,74 @@
                                     <action selector="loginButtonTapped:" destination="wJb-BG-cjV" eventType="touchUpInside" id="nRs-tL-hT6"/>
                                 </connections>
                             </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="BBO-I6-Pcq">
+                                <rect key="frame" x="8" y="509.5" width="123.5" height="266.5"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="okz-3e-3Ff">
+                                        <rect key="frame" x="0.0" y="0.0" width="102.5" height="62.5"/>
+                                        <subviews>
+                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ADR-Wh-h04">
+                                                <rect key="frame" x="0.0" y="0.0" width="51" height="31"/>
+                                                <connections>
+                                                    <action selector="pickUpModeEnabledSwtichChanged:" destination="wJb-BG-cjV" eventType="valueChanged" id="qJT-jz-XYG"/>
+                                                </connections>
+                                            </switch>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pickup mode" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AKH-ic-hBQ">
+                                                <rect key="frame" x="0.0" y="39" width="102.5" height="23.5"/>
+                                                <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sample-photo" translatesAutoresizingMaskIntoConstraints="NO" id="GyO-1j-sPY" customClass="RounedImageView" customModule="CallTaxiCone" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="87.5" width="100" height="100"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="100" id="4hh-C5-tmK"/>
+                                            <constraint firstAttribute="width" constant="100" id="8dY-zH-FRd"/>
+                                        </constraints>
+                                    </imageView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="dpT-XT-k24">
+                                        <rect key="frame" x="0.0" y="212.5" width="123.5" height="54"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="hello@mail.com" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GKw-90-vCr">
+                                                <rect key="frame" x="0.0" y="0.0" width="123.5" height="23.5"/>
+                                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DRIVER" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q9z-k6-icK">
+                                                <rect key="frame" x="0.0" y="30.5" width="58.5" height="23.5"/>
+                                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="U0g-oH-9Wp" firstAttribute="leading" secondItem="ZPF-zJ-XW9" secondAttribute="leading" constant="8" id="6Yv-tO-vlI"/>
                             <constraint firstItem="Ssd-AJ-kWX" firstAttribute="top" secondItem="kjw-yV-V8H" secondAttribute="bottom" constant="40" id="APz-rA-dUX"/>
                             <constraint firstAttribute="bottom" secondItem="U0g-oH-9Wp" secondAttribute="bottom" constant="40" id="BtK-y1-sDa"/>
+                            <constraint firstItem="BBO-I6-Pcq" firstAttribute="leading" secondItem="ZPF-zJ-XW9" secondAttribute="leading" constant="8" id="KrF-BK-1hF"/>
                             <constraint firstAttribute="trailing" secondItem="kjw-yV-V8H" secondAttribute="trailing" id="L1f-9B-Gtx"/>
                             <constraint firstItem="kjw-yV-V8H" firstAttribute="top" secondItem="ZPF-zJ-XW9" secondAttribute="top" id="PkC-3s-Aky"/>
+                            <constraint firstItem="U0g-oH-9Wp" firstAttribute="top" secondItem="BBO-I6-Pcq" secondAttribute="bottom" constant="40" id="aKo-vi-fc2"/>
                             <constraint firstItem="Ssd-AJ-kWX" firstAttribute="leading" secondItem="ZPF-zJ-XW9" secondAttribute="leading" constant="8" id="tHh-Rk-FzH"/>
                             <constraint firstItem="kjw-yV-V8H" firstAttribute="leading" secondItem="ZPF-zJ-XW9" secondAttribute="leading" id="yG3-Ow-1c8"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="loginButton" destination="U0g-oH-9Wp" id="BMd-mA-HlF"/>
+                        <outlet property="pickModeEnabledStackView" destination="okz-3e-3Ff" id="qP1-o6-Lxk"/>
+                        <outlet property="pickModeEnabledSwitch" destination="ADR-Wh-h04" id="ELf-Iq-umo"/>
+                        <outlet property="roundedImageView" destination="GyO-1j-sPY" id="mM4-qF-geu"/>
+                        <outlet property="typeOfUserLabel" destination="q9z-k6-icK" id="aOn-0u-Jwp"/>
+                        <outlet property="userEmailLabel" destination="GKw-90-vCr" id="x1c-ph-1Xj"/>
+                        <outlet property="userInfoStackView" destination="BBO-I6-Pcq" id="rsH-7X-LeZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4mD-Im-hpT" userLabel="First Responder" sceneMemberID="firstResponder"/>

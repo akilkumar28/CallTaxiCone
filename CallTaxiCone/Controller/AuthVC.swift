@@ -36,6 +36,8 @@ class AuthVC: UIViewController {
         
     }
     
+    
+    
     func configureRequestRideButton() {
         signUpLoginButton.widthConstraint = signUpLoginWidthConstraint
         signUpLoginButton.heightConstraint = signUpLoginHeightConstraint
@@ -127,6 +129,10 @@ class AuthVC: UIViewController {
     
     @IBAction func dismissButtonTapped(_ sender: Any) {
         dismiss(animated: true, completion: nil)
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
     }
     
 

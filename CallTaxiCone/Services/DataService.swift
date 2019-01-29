@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import SwiftyJSON
 
 let DB_BASE = Database.database().reference()
 
@@ -27,6 +28,27 @@ class DataService {
             REF_DRIVERS.child(uid).updateChildValues(userData)
         } else {
             REF_USERS.child(uid).updateChildValues(userData)
+        }
+    }
+    
+    func returnUserIsDriverOrNot(completion:@escaping (_ isDriver:Bool,_ isPickingModeEnabled:Bool,_ err:String?)->()) {
+        REF_DRIVERS.observeSingleEvent(of: .value) { (snapshot) in
+            if let snapshots = snapshot.children.allObjects as? [DataSnapshot] {
+                for child in snapshots {
+                    if child.key == Auth.auth().currentUser?.uid {
+                        if let value = child.value as? [String:Any] {
+                            if let isPickingEnabled = value["isPickingModeEnabled"] as? Bool {
+                                completion(true,isPickingEnabled,nil)
+                                return
+                            }
+                        }
+                    }
+                }
+                completion(false,false,nil)
+                return
+            } else {
+                completion(false,false,"Couldnt fetch value")
+            }
         }
     }
     

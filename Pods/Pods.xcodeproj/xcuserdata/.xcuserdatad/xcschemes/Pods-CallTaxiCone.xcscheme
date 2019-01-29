@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "280EF010959BF51957AEE27002666F61"
+               BlueprintIdentifier = "124964DBCDBF5268A5A8347A7CCC4BDF"
                BlueprintName = "Pods-CallTaxiCone"
                ReferencedContainer = "container:Pods.xcodeproj"
                BuildableName = "Pods-CallTaxiCone.framework">
