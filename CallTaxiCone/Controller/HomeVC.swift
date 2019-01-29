@@ -7,10 +7,13 @@
 //
 
 import UIKit
+import MapKit
+import CoreLocation
 import RevealingSplashView
 
-class HomeVC: UIViewController {
+class HomeVC: UIViewController,MKMapViewDelegate {
     
+    @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var requestRideButton: RoundedShadowButton!
     @IBOutlet weak var requestRideButtonActivitySpinner: UIActivityIndicatorView!
     @IBOutlet weak var requestRideButtonHeightConstraint: NSLayoutConstraint!
@@ -21,6 +24,8 @@ class HomeVC: UIViewController {
     @IBOutlet weak var whiteCoverView: UIView!
     
     
+    var locationManager:CLLocationManager!
+    
     var sidePanelIsOpen = false
     
     var splashView : RevealingSplashView!
@@ -29,13 +34,46 @@ class HomeVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+        locationSetup()
+        mapView.delegate = self
+        mapView.showsUserLocation = true
+        mapView.userTrackingMode = .follow
+        centerMapOnUserLocation()
+
+        
+        
         configureRequestRideButton()
         addTouchToWhitePanel()
-        
         configureSplashView()
         
         
         
+    }
+    
+    
+    fileprivate func locationSetup() {
+        
+        
+        
+        locationManager = CLLocationManager()
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.delegate = self
+        locationManager.distanceFilter = kCLDistanceFilterNone
+        let status = CLLocationManager.authorizationStatus()
+        if status == .notDetermined || status == .denied || status == .authorizedWhenInUse {
+            
+            locationManager.requestAlwaysAuthorization()
+            locationManager.requestWhenInUseAuthorization()
+        }
+        locationManager.startUpdatingLocation()
+        
+
+    }
+    
+    func centerMapOnUserLocation() {
+        mapView.setRegion(MKCoordinateRegion(center: mapView.userLocation.coordinate, latitudinalMeters: 2000.0, longitudinalMeters: 2000.0), animated: true)
     }
     
     fileprivate func configureSplashView() {
@@ -96,6 +134,21 @@ class HomeVC: UIViewController {
             bringOutSideView()
         }
         sidePanelIsOpen = !sidePanelIsOpen
+    }
+    @IBAction func centerLocationButtonTapped(_ sender: Any) {
+        centerMapOnUserLocation()
+    }
+}
+
+
+extension HomeVC:CLLocationManagerDelegate {
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        
     }
 }
 

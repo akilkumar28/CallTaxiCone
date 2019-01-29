@@ -89,6 +89,8 @@ class SidePanelVC: UIViewController {
         } else {
             do {
                 try Auth.auth().signOut()
+                userInfoStackView.alpha = 0
+                loginButton.setTitle("SignUp / Login", for: .normal)
             } catch {
                 self.displayAlert(title: "Error", Body: error.localizedDescription)
             }
@@ -97,7 +99,7 @@ class SidePanelVC: UIViewController {
     
     
     @IBAction func pickUpModeEnabledSwtichChanged(_ sender: Any) {
-        
+        DataService.sharedInstance.REF_DRIVERS.child((Auth.auth().currentUser?.uid)!).updateChildValues(["isPickingModeEnabled":pickModeEnabledSwitch.isOn])
     }
     
     
