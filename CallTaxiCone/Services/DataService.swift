@@ -23,6 +23,7 @@ class DataService {
     let REF_DRIVERS = DB_BASE.child("drivers")
     let REF_TRIPS = DB_BASE.child("trips")
     
+    
     func createFirebaseDBUser(isDriver:Bool, uid:String, userData:[String:Any]) {
         if isDriver {
             REF_DRIVERS.child(uid).updateChildValues(userData)
@@ -32,6 +33,10 @@ class DataService {
     }
     
     func returnUserIsDriverOrNot(completion:@escaping (_ isDriver:Bool,_ isPickingModeEnabled:Bool,_ err:String?)->()) {
+        if Auth.auth().currentUser == nil {
+            completion(false,false,"no user present")
+            return
+        }
         REF_DRIVERS.observeSingleEvent(of: .value) { (snapshot) in
             if let snapshots = snapshot.children.allObjects as? [DataSnapshot] {
                 for child in snapshots {
@@ -51,5 +56,5 @@ class DataService {
             }
         }
     }
-    
+
 }

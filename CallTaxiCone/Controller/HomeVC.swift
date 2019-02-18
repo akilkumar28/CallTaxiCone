@@ -10,8 +10,10 @@ import UIKit
 import MapKit
 import CoreLocation
 import RevealingSplashView
+import Firebase
 
-class HomeVC: UIViewController,MKMapViewDelegate {
+
+class HomeVC: UIViewController {
     
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var requestRideButton: RoundedShadowButton!
@@ -49,6 +51,9 @@ class HomeVC: UIViewController,MKMapViewDelegate {
         configureSplashView()
         
         
+        loadDriverAnnotationOnMapView()
+        
+        
         
     }
     
@@ -70,6 +75,47 @@ class HomeVC: UIViewController,MKMapViewDelegate {
         locationManager.startUpdatingLocation()
         
 
+    }
+    
+    func loadDriverAnnotationOnMapView() {
+        DataService.sharedInstance.REF_DRIVERS.observe(.value) { (snapshot) in
+            if let driverSnapshot = snapshot.children.allObjects as? [DataSnapshot] {
+                for driver in driverSnapshot {
+                    if driver.hasChild("coordinate") {
+                        if driver.childSnapshot(forPath: "isPickingModeEnabled").value as? Bool == true {
+                            if let value = driver.value as? [String:Any] {
+                                if let coordArray = value["coordinate"] as? NSArray {
+                                    let driverCoordinate = CLLocationCoordinate2D(latitude: coordArray[0] as! CLLocationDegrees, longitude: coordArray[1] as! CLLocationDegrees)
+                                    let annotaion = DriverAnnotation(coordinate: driverCoordinate, key: driver.key)
+                                    let isPresent = self.mapView.annotations.contains(where: { (annotation) -> Bool in
+                                        if let driverAnnotation = annotation as? DriverAnnotation {
+                                            if driverAnnotation.key == driver.key {
+                                                driverAnnotation.updateDriverAnnotation(cooridnate: driverCoordinate)
+                                                return true
+                                            }
+                                        }
+                                        return false
+                                    })
+                                    if !isPresent {
+                                        self.mapView.addAnnotation(annotaion)
+                                    }
+                                }
+                            }
+                        } else {
+                            self.mapView.annotations.contains(where: { (annotation) -> Bool in
+                                if let driverAnnotation = annotation as? DriverAnnotation {
+                                    if driverAnnotation.key == driver.key {
+                                        self.mapView.removeAnnotation(driverAnnotation)
+                                        return true
+                                    }
+                                }
+                                return false
+                            })
+                        }
+                    }
+                }
+            }
+        }
     }
     
     func centerMapOnUserLocation() {
@@ -149,6 +195,36 @@ extension HomeVC:CLLocationManagerDelegate {
     
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         
+    }
+}
+
+
+extension HomeVC:MKMapViewDelegate {
+    
+    func mapView(_ mapView: MKMapView, didUpdate userLocation: MKUserLocation) {
+        
+        DataService.sharedInstance.returnUserIsDriverOrNot { (isDriver, isPickingEnabled, err) in
+            if err != nil {
+                print(err)
+                return
+            }
+            if isDriver {
+                UpdateService.sharedInstance.updateDriverLocation(withCoordinate: userLocation.coordinate, isPickingEnabled: isPickingEnabled)
+            } else{
+                UpdateService.sharedInstance.updateUserLocation(withCoordinate: userLocation.coordinate)
+            }
+        }
+        
+    }
+    
+    
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        if let annotation = annotation as? DriverAnnotation {
+            let annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: "driver")
+            annotationView.image = #imageLiteral(resourceName: "driverAnnotation")
+            return annotationView
+        }
+        return nil
     }
 }
 

@@ -25,6 +25,9 @@ class SidePanelVC: UIViewController {
     
     @IBOutlet weak var userInfoStackView: UIStackView!
     
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         

@@ -12,6 +12,8 @@
 		4253071321FF6943005B6F62 /* RoundedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4253071221FF6943005B6F62 /* RoundedTextField.swift */; };
 		4253071521FFA489005B6F62 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4253071421FFA489005B6F62 /* DataService.swift */; };
 		4253071721FFA704005B6F62 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4253071621FFA704005B6F62 /* AuthService.swift */; };
+		429AA2352213589400177800 /* DriverAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 429AA2342213589400177800 /* DriverAnnotation.swift */; };
+		42A3BC26220B3A1000232BFE /* UpdateService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A3BC25220B3A1000232BFE /* UpdateService.swift */; };
 		42B3C55921FE54A8001EC249 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B3C55821FE54A8001EC249 /* AppDelegate.swift */; };
 		42B3C55B21FE54A8001EC249 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B3C55A21FE54A8001EC249 /* HomeVC.swift */; };
 		42B3C55E21FE54A8001EC249 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 42B3C55C21FE54A8001EC249 /* Main.storyboard */; };
@@ -32,6 +34,8 @@
 		4253071221FF6943005B6F62 /* RoundedTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedTextField.swift; sourceTree = "<group>"; };
 		4253071421FFA489005B6F62 /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
 		4253071621FFA704005B6F62 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
+		429AA2342213589400177800 /* DriverAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverAnnotation.swift; sourceTree = "<group>"; };
+		42A3BC25220B3A1000232BFE /* UpdateService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateService.swift; sourceTree = "<group>"; };
 		42B3C55521FE54A8001EC249 /* CallTaxiCone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CallTaxiCone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		42B3C55821FE54A8001EC249 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		42B3C55A21FE54A8001EC249 /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
@@ -124,6 +128,7 @@
 		42B3C56C21FE5551001EC249 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				429AA2342213589400177800 /* DriverAnnotation.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -133,6 +138,7 @@
 			children = (
 				4253071421FFA489005B6F62 /* DataService.swift */,
 				4253071621FFA704005B6F62 /* AuthService.swift */,
+				42A3BC25220B3A1000232BFE /* UpdateService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -290,11 +296,13 @@
 				42B3C57A21FE6F37001EC249 /* RoundedShadowButton.swift in Sources */,
 				42B3C57821FE6E9A001EC249 /* CircleView.swift in Sources */,
 				4253071721FFA704005B6F62 /* AuthService.swift in Sources */,
+				429AA2352213589400177800 /* DriverAnnotation.swift in Sources */,
 				4253071321FF6943005B6F62 /* RoundedTextField.swift in Sources */,
 				4253070F21FF59AA005B6F62 /* SidePanelVC.swift in Sources */,
 				4253071521FFA489005B6F62 /* DataService.swift in Sources */,
 				42B3C55B21FE54A8001EC249 /* HomeVC.swift in Sources */,
 				42B3C55921FE54A8001EC249 /* AppDelegate.swift in Sources */,
+				42A3BC26220B3A1000232BFE /* UpdateService.swift in Sources */,
 				42B3C57621FE6D60001EC249 /* RoundedShadowView.swift in Sources */,
 				42B3C57221FE67BA001EC249 /* GradientView.swift in Sources */,
 				42B3C57421FE6C80001EC249 /* RounedImageView.swift in Sources */,
